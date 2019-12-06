@@ -1,0 +1,9 @@
+PUT http://localhost:3001/api/events/5dea5e4ae54f77318861a2c1
+Content-Type: application/json
+
+{
+    "name": "päivitetty",
+    "location": "tätät",
+    "description": "sad",
+    "participants": 123
+}

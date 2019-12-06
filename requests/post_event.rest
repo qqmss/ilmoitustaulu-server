@@ -1,0 +1,10 @@
+POST http://localhost:3001/api/events
+Content-Type: application/json
+
+{
+      "name": "Konsertti 2",
+      "location": "Vaasa",
+      "time": "1995-12-19T03:24:00",
+      "description": "musiikkia",
+      "participants": 285
+}
