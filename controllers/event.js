@@ -1,5 +1,6 @@
 const eventRouter = require('express').Router()
 const Event = require('../models/event')
+const Comment = require('../models/comment')
 
 eventRouter.get('/', (request, response, next) => {
   Event
@@ -48,15 +49,15 @@ eventRouter.post('/', (request, response, next) => {
 })
 
 eventRouter.delete('/:id', (request, response, next) => {
-  console.log(request.params.id)
   Event
     .findByIdAndDelete(request.params.id)
     .then(() => {
       response.status(204).end()
+      Comment
+        .deleteMany({eventId: request.params.id})
+        .catch(error => next(error))
     })
     .catch(error => next(error))
 })
-
-
 
 module.exports = eventRouter

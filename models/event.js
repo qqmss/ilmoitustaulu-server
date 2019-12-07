@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 
 const eventSchema = mongoose.Schema({
-  name: String,
-  location: String,
-  time: Date,
-  description: String,
-  participants: Number,
-  createdTime: Date
+  name: {type: String, required: true, trim: true, minlength: 1},
+  location: {type: String, required: true, trim: true, minlength: 1},
+  time: {type: Date, required: true},
+  description: {type: String, required: true, trim: true, minlength: 1},
+  participants: {type: Number, default: 0, min: 0},
+  createdTime: {type: Date, default: Date}
 })
 
 eventSchema.set('toJSON', {

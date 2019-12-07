@@ -1,0 +1,1 @@
+DELETE http://localhost:3001/api/events/5dea59d5212aa80f0454a584/comments/5deaa65e47442f28c0e6211a
