@@ -4,8 +4,9 @@
   "description": "server for ilmoitustaulu",
   "main": "index.js",
   "scripts": {
-    "watch": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=production node index.js",
+    "watch": "cross-env NODE_ENV=development nodemon index.js",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,9 @@
     "mongoose": "^5.7.13"
   },
   "devDependencies": {
-    "nodemon": "^2.0.1"
+    "cross-env": "^6.0.3",
+    "jest": "^24.9.0",
+    "nodemon": "^2.0.1",
+    "supertest": "^4.0.2"
   }
 }
