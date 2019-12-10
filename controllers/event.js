@@ -1,7 +1,15 @@
+/**
+ * Tapahtumien routet.
+ * @module controllers/event
+ */
+
 const eventRouter = require('express').Router()
 const Event = require('../models/event')
 const Comment = require('../models/comment')
 
+/**
+ * Route kaikkien tapahtumien palauttamiseksi.
+ */
 eventRouter.get('/', (request, response, next) => {
   Event
     .find({})
@@ -11,6 +19,9 @@ eventRouter.get('/', (request, response, next) => {
     .catch(error => next(error))
 })
 
+/**
+ * Route tapahtuman palauttamiseksi.
+ */
 eventRouter.get('/:id', (request, response, next) => {
   Event
     .findById(request.params.id)
@@ -24,6 +35,9 @@ eventRouter.get('/:id', (request, response, next) => {
     .catch(error => next(error))
 })
 
+/**
+ * Route tapahtuman muuttamiseksi.
+ */
 eventRouter.put('/:id', (request, response, next) => {
   Event
     .findByIdAndUpdate(request.params.id, request.body, { new: true })
@@ -37,6 +51,9 @@ eventRouter.put('/:id', (request, response, next) => {
     .catch(error => next(error))
 })
 
+/**
+ * Route tapahtuman lisäämiseksi.
+ */
 eventRouter.post('/', (request, response, next) => {
   const event = new Event(request.body)
   event.createdTime = new Date()
@@ -48,6 +65,9 @@ eventRouter.post('/', (request, response, next) => {
     .catch(error => next(error))
 })
 
+/**
+ * Route tapahtuman poistamiseksi.
+ */
 eventRouter.delete('/:id', (request, response, next) => {
   Event
     .findByIdAndDelete(request.params.id)

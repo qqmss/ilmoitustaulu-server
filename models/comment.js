@@ -1,5 +1,13 @@
+/**
+ * Mongoose model Comment konstruktori validioi tapahtumat ja määrittää niiden muodon.
+ * @module models/event
+ */
+
 const mongoose = require('mongoose')
 
+/**
+ * @const {object} commentSchema Kommentin mongoose skeema. Määrittää validoinnin kommenteille.
+ */
 const commentSchema = mongoose.Schema({
   author: {type: String, required: true, trim: true, minlength: 1},
   message: {type: String, required: true, trim: true, minlength: 1},

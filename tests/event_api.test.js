@@ -74,7 +74,7 @@ describe('tapahtuma rest api:n testaus', () => {
 
   describe('ei validia tapahtumaa ei voi lisätä', () => {
 
-    test('puutuu nimi', async () => {
+    test('puuttuu nimi', async () => {
       const newEvent = {
         name: "",
         location: "Oulu",
@@ -91,7 +91,7 @@ describe('tapahtuma rest api:n testaus', () => {
       expect(responseEnd.body).toEqual(responseStart.body)
     })
 
-    test('puutuu paikka', async () => {
+    test('puuttuu paikka', async () => {
       const newEvent = {
         name: "uinti",
         location: "",
@@ -108,7 +108,7 @@ describe('tapahtuma rest api:n testaus', () => {
       expect(responseEnd.body).toEqual(responseStart.body)
     })
 
-    test('puutuu kuvaus', async () => {
+    test('puuttuu kuvaus', async () => {
       const newEvent = {
         name: "uinti",
         location: "Oulu",

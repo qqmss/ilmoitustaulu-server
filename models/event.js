@@ -1,5 +1,13 @@
+/**
+ * Mongoose model Event konstruktori validioi tapahtumat ja määrittää niiden muodon.
+ * @module models/event
+ */
+
 const mongoose = require('mongoose')
 
+/**
+ * @const {object} eventSchema Tapahtuman mongoose skeema. Määrittää validoinnin tapahtumille.
+ */
 const eventSchema = mongoose.Schema({
   name: {type: String, required: true, trim: true, minlength: 1},
   location: {type: String, required: true, trim: true, minlength: 1},

@@ -1,7 +1,15 @@
+/**
+ * Kommentien routet.
+ * @module controllers/comment
+ */
+
 const commentRouter = require('express').Router()
 const Comment = require('../models/comment')
 const Event = require('../models/event')
 
+/**
+ * Route tapahtuman kaikkien kommentien palauttamiseksi.
+ */
 commentRouter.get('/:eventId/comments', (request, response, next) => {
   Event.exists({ _id: request.params.eventId })
     .then(exits => {
@@ -19,6 +27,9 @@ commentRouter.get('/:eventId/comments', (request, response, next) => {
     .catch(error => next(error))
 })
 
+/**
+ * Route yksittäisen kommentin palauttamiseksi.
+ */
 commentRouter.get('/:eventId/comments/:id', (request, response, next) => {
   Event.exists({ _id: request.params.eventId })
     .then(exits => {
@@ -40,6 +51,9 @@ commentRouter.get('/:eventId/comments/:id', (request, response, next) => {
     .catch(error => next(error))
 })
 
+/**
+ * Route kommentin poistamiseksi.
+ */
 commentRouter.delete('/:eventId/comments/:id', (request, response, next) => {
   Event.exists({ _id: request.params.eventId })
     .then(exits => {
@@ -57,6 +71,9 @@ commentRouter.delete('/:eventId/comments/:id', (request, response, next) => {
     .catch(error => next(error))
 })
 
+/**
+ * Route kommentin lisäämiseksi.
+ */
 commentRouter.post('/:eventId/comments', (request, response, next) => {
   Event.exists({ _id: request.params.eventId })
     .then(exits => {

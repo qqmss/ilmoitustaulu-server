@@ -77,7 +77,7 @@ describe('tapahtuma rest api:n kommenttien testaus', () => {
 
   describe('ei validia kommenttia ei voi lisätä', () => {
 
-    test('puutuu nimimerkki', async () => {
+    test('puuttuu nimimerkki', async () => {
       const newComment = {
         author: "",
         message: "hues"
@@ -92,7 +92,7 @@ describe('tapahtuma rest api:n kommenttien testaus', () => {
       expect(responseEnd.body).toEqual(responseStart.body)
     })
 
-    test('puutuu viesti', async () => {
+    test('puuttuu viesti', async () => {
       const newComment = {
         author: "Hyrra",
         message: ""

@@ -1,5 +1,4 @@
 PUT http://localhost:3001/api/events/5ded0e2b517c774244631f0d/comments/5ded1ebf05a24a16145a620e
-
 Content-Type: application/json
 
 {
