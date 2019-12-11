@@ -3,7 +3,7 @@ const http = require('http')
 const app = require('./app')
 
 /**
- * @const {Server} server - Käynnistetyn express sovelluksenm palvelin.
+ * @const {Server} server - Käynnistetyn express sovelluksen palvelin.
  */
 const server = http.createServer(app)
 

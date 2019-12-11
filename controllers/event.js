@@ -1,8 +1,11 @@
 /**
- * Tapahtumien routet.
+ * Tapahtumien routet moduuli.
  * @module controllers/event
  */
 
+ /**
+  * Tapahtumien routet.
+  */
 const eventRouter = require('express').Router()
 const Event = require('../models/event')
 const Comment = require('../models/comment')

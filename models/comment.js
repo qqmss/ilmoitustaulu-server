@@ -1,6 +1,6 @@
 /**
  * Mongoose model Comment konstruktori validioi tapahtumat ja määrittää niiden muodon.
- * @module models/event
+ * @module models/comment
  */
 
 const mongoose = require('mongoose')

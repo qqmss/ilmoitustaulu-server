@@ -1,5 +1,5 @@
 /**
- * Kommentien routet.
+ * Kommentien routet moduuli.
  * @module controllers/comment
  */
 

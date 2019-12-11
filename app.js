@@ -14,6 +14,7 @@ const mongoose = require('mongoose')
 const morgan = require('morgan')
 const eventRouter = require('./controllers/event')
 const commentRouter = require('./controllers/comment')
+const countHelp = require('./utils/document_helper')
 
 /**
  * @const {string} - Mongo database url.
@@ -29,6 +30,7 @@ mongoose.connect(mongoUrl, { useNewUrlParser: true })
     console.log('error connecting to db', error.message)
   })
 
+app.use(express.static('build'))
 app.use(cors()) //Cross-Origin Resource Sharing.
 app.use(bodyParser.json()) //Parse incoming request bodies.
 morgan.token('body', req => JSON.stringify(req.body))
@@ -36,8 +38,11 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms :b
 
 app.use('/api/events', eventRouter)
 app.use('/api/events', commentRouter)
-app.get('/', (request, response) => {
-  response.send('hello')
+app.get('/stats', async (request, response) => {
+  response.send(
+    `<h1>Statistics</h1>
+    <p>Events: ${await countHelp.getEventCount()}</p>
+    <p>Comments: ${await countHelp.getCommentCount()}</p>`)
 })
 
 /**
